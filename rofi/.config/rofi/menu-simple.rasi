@@ -1,0 +1,39 @@
+@theme "theme.rasi"
+
+* {
+    font: "JetBrains Mono Nerd Font 11";
+}
+
+window {
+    width: 400px;
+    padding: 8px;
+    border: 2px solid;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 8px;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled: true;
+}
+
+listview {
+    enabled: true;
+    lines: 20;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 8px;
+    layout : vertical;
+}
+
+element {
+    enabled: true;
+    padding: 2px;
+}
+
+element-text {
+    padding: 4px;
+}

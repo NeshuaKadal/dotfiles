@@ -1,0 +1,274 @@
+[cmp.active]
+bg = "#3D484D"
+fg = "#D699B6"
+
+[cmp.border]
+fg = "#A7C080"
+
+[cmp.inactive]
+fg = "#D3C6AA"
+
+[[filetype.rules]]
+fg = "#83C092"
+mime = "image/*"
+
+[[filetype.rules]]
+fg = "#DBBC7F"
+mime = "video/*"
+
+[[filetype.rules]]
+fg = "#DBBC7F"
+mime = "audio/*"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/zip"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/gzip"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/x-tar"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/x-bzip"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/x-bzip2"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/x-7z-compressed"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/x-rar"
+
+[[filetype.rules]]
+fg = "#D699B6"
+mime = "application/xz"
+
+[[filetype.rules]]
+fg = "#A7C080"
+mime = "application/doc"
+
+[[filetype.rules]]
+fg = "#A7C080"
+mime = "application/pdf"
+
+[[filetype.rules]]
+fg = "#A7C080"
+mime = "application/rtf"
+
+[[filetype.rules]]
+fg = "#A7C080"
+mime = "application/vnd.*"
+
+[[filetype.rules]]
+fg = "#839e9a"
+mime = "inode/directory"
+
+[[filetype.rules]]
+fg = "#D3C6AA"
+mime = "*"
+
+[help.desc]
+fg = "#D3C6AA"
+
+[help.footer]
+fg = "#D3C6AA"
+
+[help.hovered]
+bg = "#3D484D"
+fg = "#D3C6AA"
+
+[help.on]
+fg = "#D699B6"
+
+[help.run]
+fg = "#83C092"
+
+[icon]
+dirs = [
+    {name = ".config", text = "", fg = "#E69875"},
+    {name = "Desktop", text = "", fg = "#A7C080"},
+    {name = "Development", text = "", fg = "#A7C080"},
+    {name = "Documents", text = "", fg = "#A7C080"},
+    {name = "Downloads", text = "", fg = "#A7C080"},
+    {name = "Library", text = "", fg = "#A7C080"},
+    {name = "Movies", text = "", fg = "#A7C080"},
+    {name = "Music", text = "", fg = "#A7C080"},
+    {name = "Pictures", text = "", fg = "#A7C080"},
+    {name = "Public", text = "", fg = "#A7C080"},
+    {name = "Videos", text = "", fg = "#A7C080"}
+]
+conds = [{ if = "dir", text = "", fg = "#A7C080"}]
+
+[indicator.padding]
+open = "▐"
+close = "▌"
+
+[input.border]
+fg = "#A7C080"
+
+[input.selected]
+bg = "#3D484D" 
+
+[input.title]
+fg = "#D3C6AA"
+
+[input.value]
+fg = "#D3C6AA"
+
+[mgr.border_style]
+fg = "#475258" 
+
+[mgr.cwd]
+fg = "#A7C080"
+
+[mgr.find_keyword]
+fg = "#A7C080"
+
+[mgr.find_position]
+fg = "#D3C6AA"
+
+[mgr.hovered]
+bg = "#3D484D"
+fg = "#D3C6AA"
+
+[mgr.marker_copied]
+bg = "#DBBC7F"
+fg = "#DBBC7F"
+
+[mgr.marker_cut]
+bg = "#E67E80"
+fg = "#E67E80"
+
+[mgr.marker_selected]
+bg = "#A7C080"
+fg = "#A7C080"
+
+[mgr.preview_hovered]
+bg = "#3D484D"
+fg = "#D3C6AA"
+
+[mgr.tab_active]
+bg = "#A7C080"
+fg = "#343F44"
+
+[mgr.tab_inactive]
+bg = "#9DA9A0"
+fg = "#475258"
+
+[mode.normal_main]
+bg = "#A7C080"
+fg = "#343F44"
+[mode.normal_alt]
+bg = "#3D484D"
+fg = "#A7C080"
+[mode.pick_main]
+bg = "#D699B6"
+fg = "#343F44"
+[mode.pick_alt]
+bg = "#3D484D"
+fg = "#D699B6"
+[mode.unset_main]
+bg = "#96b4aa"
+fg = "#343F44"
+[mode.unset_alt]
+bg = "#3D484D"
+fg = "#96b4aa"
+
+[pick.active]
+fg = "#D699B6"
+
+[pick.border]
+fg = "#A7C080"
+
+[pick.inactive]
+fg = "#D3C6AA"
+
+[status.sep_left]
+open = "▐"
+close = "▌"
+
+[status.sep_right]
+open = "▐"
+close = "▌"
+
+[status.perm_read]
+fg = "#DBBC7F"
+
+[status.perm_sep]
+fg = "#83C092"
+
+[status.perm_type]
+fg = "#7FBBB3"
+
+[status.perm_write]
+fg = "#D699B6"
+
+[status.perm_exec]
+fg = "#A7C080"
+
+[status.progress_error]
+bg = "#343F44"
+fg = "#E67E80"
+
+[status.progress_label]
+bg = "#343F44"
+fg = "#D3C6AA"
+
+[status.progress_normal]
+bg = "#343F44"
+fg = "#D3C6AA"
+
+[status.separator_style]
+bg = "#3D484D"
+fg = "#3D484D"
+
+[tasks.border]
+fg = "#A7C080"
+
+[tasks.hovered]
+bg = "#3D484D"
+fg = "#D3C6AA"
+
+[tasks.title]
+fg = "#D3C6AA"
+
+[which.cand]
+fg = "#83C092"
+
+[which.desc]
+fg = "#D3C6AA"
+
+[which.mask]
+bg = "#475258"
+
+[which.rest]
+fg = "#58686d"
+
+[which.separator_style]
+fg = "#58686d"
+
+[tabs.active]
+bg = "#A7C080"
+fg = "#343F44"
+
+[tabs.inactive]
+bg = "#3D484D"
+fg = "#A7C080"
+
+[tabs.sep_inner]
+open = "▐"
+close = "▌"
+
+[tabs.sep_outer]
+open = "▐"
+close = "▌"
+

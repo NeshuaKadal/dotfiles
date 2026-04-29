@@ -1,0 +1,73 @@
+binds {
+    // Keybinds menu
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Misc
+    Mod+O repeat=false 	{ toggle-overview; }			// show overview
+    Mod+Q repeat=false 	{ close-window; }			// close window
+
+    // Move Window Focus
+    Mod+up 		{ focus-window-or-workspace-up; }			// focus window up
+    Mod+down 		{ focus-window-or-workspace-down; }			// focus window down
+    Mod+left 		{ focus-column-left; }			// focus window left
+    Mod+right 		{ focus-column-right; }			// focus window right
+
+    Mod+Tab 		{ focus-workspace-previous; }		// move workspace focus last (Like microslop's Win+Tab)
+
+    // Move Window
+    Mod+Shift+up 	{ move-window-up; }			// move window up
+    Mod+Shift+down 	{ move-window-down; }			// move window down
+    Mod+Shift+left 	{ move-column-left; }			// move window left
+    Mod+Shift+right 	{ move-column-right; }			// move window right
+
+    Mod+Shift+Page_Up 	{ move-column-to-workspace-up; }	// move window  up  a workspace
+    Mod+Shift+Page_Down { move-column-to-workspace-down; }	// move	window down a workspace
+
+    // Workspaces
+    Mod+Ctrl+Page_Down 	{ move-workspace-up; }			// move workspace  up  a workspace
+    Mod+Ctrl+Page_Up 	{ move-workspace-down; }		// move workspace down a workspace
+
+    Mod+1 		{ focus-workspace 1; }			// focus workspace 1
+    Mod+2 		{ focus-workspace 2; }			// focus workspace 2
+    Mod+3 		{ focus-workspace 3; }			// focus workspace 3
+    Mod+4 		{ focus-workspace 4; }			// focus workspace 4
+    Mod+5 		{ focus-workspace 5; }			// focus workspace 5
+    Mod+6 		{ focus-workspace 6; }			// focus workspace 6
+    Mod+7 		{ focus-workspace 7; }			// focus workspace 7
+    Mod+8 		{ focus-workspace 8; }			// focus workspace 8
+    Mod+9 		{ focus-workspace 9; }			// focus workspace 9
+    Mod+Shift+1 	{ move-column-to-workspace 1; }		// Move window to workspace 1
+    Mod+Shift+2 	{ move-column-to-workspace 2; }		// Move window to workspace 2
+    Mod+Shift+3 	{ move-column-to-workspace 3; }		// Move window to workspace 3
+    Mod+Shift+4 	{ move-column-to-workspace 4; }		// Move window to workspace 4
+    Mod+Shift+5 	{ move-column-to-workspace 5; }		// Move window to workspace 5
+    Mod+Shift+6 	{ move-column-to-workspace 6; }		// Move window to workspace 6
+    Mod+Shift+7 	{ move-column-to-workspace 7; }		// Move window to workspace 7
+    Mod+Shift+8 	{ move-column-to-workspace 8; }		// Move window to workspace 8
+    Mod+Shift+9 	{ move-column-to-workspace 9; }		// Move window to workspace 9
+
+    // Quick Resize Window
+    Mod+R 		{ switch-preset-column-width; }		// cycle window width 		( 1/3, 1/2, 2/3 )
+    Mod+Shift+R 	{ switch-preset-window-height; }	// cycle window height 		^
+    Mod+F 		{ maximize-column; }			// set window max 		( fill window )
+    Mod+Shift+F 	{ fullscreen-window; }			// set window full	 	( fill monitor )
+    Mod+Ctrl+F 		{ expand-column-to-available-width; }	// set window fill		( fill remaining space )
+
+    // Window Stack
+    Mod+Comma 		{ consume-window-into-column; }		// Stack window			( consume window from right)
+    Mod+Shift+Comma 	{ expel-window-from-column; }		// Un-Stack window
+    Mod+W 		{ toggle-column-tabbed-display; }	// Enable tabs 			( Stack tabs instead of tiling )
+
+    // Applications such as remote-desktop clients and software KVM switches may request that niri stops processing the keyboard shortcuts defined here.
+    // It's a good idea to bind an escape hatch to toggle the inhibitor, so a buggy application can't hold your session hostage.
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Quit Niri
+    Alt+F4 { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    // Power off monitors. (To turn them back on, do any input like moving the mouse or pressing any key.)
+    Mod+Shift+P { power-off-monitors; }                                                      
+
+}
+
