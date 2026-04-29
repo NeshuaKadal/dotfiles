@@ -1,0 +1,5 @@
+spawn-at-startup "mako"
+spawn-at-startup "mpd"
+spawn-at-startup "polkit-kde-agent"
+spawn-at-startup "waybar"
+spawn-at-startup "~/.config/scripts/restore-wallpaper.sh"

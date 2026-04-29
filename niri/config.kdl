@@ -1,0 +1,6 @@
+include "hardware.kdl"
+include "visual.kdl"
+include "startup.kdl"
+include "rules.kdl"
+include "misc.kdl"
+include "keybinds.kdl"

@@ -1,0 +1,88 @@
+@define-color red 	#f57f82;
+@define-color orange 	#f7a182;
+@define-color yellow 	#f5d098;
+@define-color lime 	#dbe6af;
+@define-color green 	#cae0a7;
+@define-color aqua 	#addeb9;
+@define-color cyan 	#ace0d4;
+@define-color sky 	#afdfe6;
+@define-color blue 	#b2cfed;
+@define-color purple 	#d0bbf0;
+@define-color pink 	#f3c0e5;
+@define-color cherry 	#f6cee5;
+@define-color text 	#d3C6aa;
+@define-color fg2 	#adc9bc;
+@define-color fg1 	#96b4aa;
+@define-color fg0 	#839e9a;
+@define-color bg5 	#56635F;
+@define-color bg4 	#4F585E;
+@define-color bg3 	#475258;
+@define-color bg2 	#3D484D;
+@define-color bg1 	#343F44;
+@define-color bg0 	#2D353B;
+@define-color bg-dim	#232A2E;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 14px;
+    font-weight: 500;	
+    min-height: 0;
+}
+
+window#waybar {
+    background: @bg0;
+    color: @text;
+}
+
+tooltip {
+    padding: 2px;
+    background: @bg0
+}
+
+tooltip label {
+    color: @text;
+}
+
+#custom-icon {
+    background-image: url('/home/liam/.config/themes/images/atium-orange.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0 12px;
+    margin-left: 1.5px;
+    font-size: 20px;
+}
+
+#custom-icon-text {
+    padding: 0px 12px 0px 0px;
+    margin-right: 1.5px;
+    background: transparent;
+    color: @orange;
+}
+
+#workspaces button {
+    padding: 0 12px;
+    margin: 0 1.5px;
+    background: transparent;
+    color: @text;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    transition: none;
+}
+
+#window,
+#wireplumber,
+#memory,
+#cpu,
+#bluetooth,
+#network,
+#clock {
+    padding: 0 12px;
+    margin: 0 1.5px;
+    background: transparent;
+}
