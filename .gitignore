@@ -1,3 +1,6 @@
-mpd/database
-mpd/pid
-mpd/state
+*.log
+*.state
+*.pid
+mpd/.config/mpd/database
+mpd/.config/mpd/pid
+mpd/.config/mpd/state
