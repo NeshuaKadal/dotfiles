@@ -1,0 +1,13 @@
+
+// @import "/shared/wallust.rasi"
+@import "/themes/everforest.rasi"
+
+* {
+    background-rgba:	@bg0-rgba;
+    background:		@bg0;
+    background-alt: 	@bg1;
+    foreground:		@text;
+    selected:		@green;
+    active: 		@yellow;
+    urgent:		@red;
+}

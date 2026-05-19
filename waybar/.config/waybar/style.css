@@ -1,11 +1,14 @@
+
+/*-----Theme-----*/
+
 @define-color red 	#f57f82;
 @define-color orange 	#f7a182;
 @define-color yellow 	#f5d098;
 @define-color lime 	#dbe6af;
 @define-color green 	#cae0a7;
 @define-color aqua 	#addeb9;
-@define-color cyan 	#ace0d4;
-@define-color sky 	#afdfe6;
+@define-color skye 	#ace0d4;
+@define-color snow 	#afdfe6;
 @define-color blue 	#b2cfed;
 @define-color purple 	#d0bbf0;
 @define-color pink 	#f3c0e5;
@@ -20,69 +23,129 @@
 @define-color bg2 	#3D484D;
 @define-color bg1 	#343F44;
 @define-color bg0 	#2D353B;
-@define-color bg-dim	#232A2E;
+@define-color bg-rgba 	rgba(45, 53, 59, 0.50);
+@define-color bg-dim 	#232A2E;
+
+/*-----Colour-----*/
+
+@define-color background @bg0;
+@define-color background-alt @bg1;
+@define-color foreground @text;
+@define-color accent @green;
+@define-color special @yellow;
+
+/*-----Global-----*/
 
 * {
     border: none;
     border-radius: 0;
     font-family: 'JetBrainsMono Nerd Font';
-    font-size: 14px;
-    font-weight: 500;	
+    font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background: @bg0;
-    color: @text;
 }
 
 tooltip {
     padding: 2px;
-    background: @bg0
 }
 
 tooltip label {
-    color: @text;
 }
 
+/*-----Common-----*/
+
+window#waybar,
+tooltip,
+tooltip label {
+    background-color: @background;
+    color: @foreground;
+}
+
+#workspaces button,
+#mpd,
+#clock,
+#custom-cava,
+#custom-expand-icon,
+#tray,
+#wireplumber {
+    background-color: @background-alt;
+    color: @foreground;
+}
+
+/*-----Left-----*/
+
 #custom-icon {
-    background-image: url('/home/liam/.config/themes/images/atium-orange.svg');
+    background-image: url('/home/liam/.config/themes/images/bendalloy-bg0.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 0 12px;
-    margin-left: 1.5px;
-    font-size: 20px;
+    background-color: @special;
+    padding: 0px 7px;
+    margin: 2px;
+    font-size: 17px;
 }
 
-#custom-icon-text {
-    padding: 0px 12px 0px 0px;
-    margin-right: 1.5px;
-    background: transparent;
-    color: @orange;
+#workspaces {
 }
 
 #workspaces button {
-    padding: 0 12px;
-    margin: 0 1.5px;
-    background: transparent;
-    color: @text;
+    padding: 0px 4px;
+    margin: 2px;
 }
 
 #workspaces button:hover {
     box-shadow: none;
     text-shadow: none;
     transition: none;
+    background: @background-alt;
 }
 
-#window,
-#wireplumber,
-#memory,
-#cpu,
-#bluetooth,
-#network,
+#workspaces button.focused {
+    font-weight: bold;
+    background-color: @accent;
+    color: @background;
+}
+
+/*-----Center-----*/
+
+#mpd {
+    padding: 0px 10px;
+    margin: 2px;
+}
+
 #clock {
-    padding: 0 12px;
-    margin: 0 1.5px;
-    background: transparent;
+    padding: 0px 10px;
+    margin: 2px;
+    
+    color: @accent;
+}
+
+#custom-cava {
+    padding: 0px 10px;
+    margin: 2px;
+}
+
+/*-----Right-----*/
+
+#custom-expand-icon{
+    padding: 0px 10px;
+    margin: 2px;
+}
+
+#tray{
+    padding: 0px 10px;
+    margin: 2px;
+}
+
+#tray menu{
+    background-color: @background;
+    color: @foreground;
+    border: 0px;
+}
+
+#wireplumber{
+    padding: 0px 10px;
+    margin: 2px;
 }

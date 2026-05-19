@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 wall_dir="${HOME}/Pictures/Wallpapers"
 cache_dir="${HOME}/.cache/wallpaper-previews"
-rofi_args=(-p "󰋩  Wallpaper" -theme "menu-wallpaper.rasi")
+rofi="rofi -dmenu -i -p Wallpaper -theme ../modules/menu-wallpaper.rasi"
 
 if [ ! -d "${cache_dir}" ] ; then
         mkdir -p "${cache_dir}"
@@ -21,7 +21,7 @@ wall_selection=$(find "${wall_dir}" -maxdepth 1 -type f \
     \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
     -exec basename {} \; | sort | while read -r A ; do 
 	echo -en "$A\x00icon\x1f""${cache_dir}"/"$A\n"
-    done | rofi -dmenu -i "${rofi_args[@]}")
+    done | $rofi)
 
 [[ -n "$wall_selection" ]] || exit 1
 

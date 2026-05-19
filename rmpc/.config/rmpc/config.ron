@@ -6,8 +6,8 @@
     password: None,
     theme: "theme",
     cache_dir: None,
-    on_song_change: None,
-    volume_step: 5,
+    on_song_change: ["~/.config/scripts/notify-music.sh"],
+    volume_step: 1,
     max_fps: 30,
     scrolloff: 0,
     wrap_navigation: false,
@@ -19,7 +19,7 @@
         method: Auto,
         max_size_px: (width: 3000, height: 3000),
         disabled_protocols: ["http://", "https://"],
-        vertical_align: Top,
+        vertical_align: Center,
         horizontal_align: Center,
     ),
     keybinds: (
@@ -31,8 +31,6 @@
 
             "z":          ToggleRepeat,	
             "x":          ToggleRandom,	
-            "c":          ToggleConsume,
-            "v":          ToggleSingle,	
 
             "p":          TogglePause,
             "s":          Stop,
@@ -45,29 +43,22 @@
 
             "<Tab>":      NextTab,
             "<S-Tab>":    PreviousTab,
-            "1":          SwitchToTab("Queue"),
-            "2":          SwitchToTab("Search"),
-            "3":          SwitchToTab("Playlists"),
-            "4":          SwitchToTab("Directory"),
+            "1":          SwitchToTab("Playing"),
+            "2":          SwitchToTab("Artists"),
+            "3":          SwitchToTab("Albums"),
+            "4":          SwitchToTab("Search"),
             "<C-u>":      Update,
             "<C-U>":      Rescan,
             "R":          AddRandom,
         },
         navigation: {
-            "k":         Up,
-            "j":         Down,
-            "h":         Left,
-            "l":         Right,
-
             "<Up>":      Up,
             "<Down>":    Down,
             "<Left>":    Left,
             "<Right>":   Right,
 
-            "<C-k>":     PaneUp,
-            "<C-j>":     PaneDown,
-            "<C-h>":     PaneLeft,
-            "<C-l>":     PaneRight,
+            "<C-<Up>>":  MoveUp,
+            "<C-<Down>>":MoveDown,
 
             "g":         Top,
             "G":         Bottom,
@@ -75,12 +66,12 @@
             "<Space>":   Select,
             "<C-Space>": InvertSelection,
 
-            "K":         MoveUp,		// move song / selection up
-            "J":         MoveDown,		// move song / selection down
+            "K":         MoveUp,
+            "J":         MoveDown,
 
-            "a":         Add,			// add song / selection
-            "A":         AddAll,		// add all songs
-            "<CR>":      Confirm,
+            "a":         Add,
+            "A":         AddAll,
+	    "<CR>":      Confirm,
             "i":         FocusInput,
             "/":         EnterSearch,
             "<C-c>":     Close,
@@ -105,44 +96,43 @@
             (value: "title",       label: "Title"),
             (value: "album",       label: "Album"),
             (value: "artist",      label: "Artist"),
+            (value: "genre",       label: "Genre"),
             (value: "filename",    label: "Filename"),
         ],
     ),
     artists: (
         album_display_mode: SplitByDate,
         album_sort_by: Date,
+        album_date_tags: [Date],
     ),
     tabs: [
         (
-            name: "Queue",
+            name: "Playing",
             pane: Split(
-                direction: Horizontal,
-		panes: [(size: "65%", pane: Pane(Queue)), (size: "35%", pane: Pane(AlbumArt))],
+                direction: Vertical,
+		panes: [
+		    (size: "1", pane: Pane(QueueHeader())),
+		    (size: "100%", pane: Pane(Queue)),
+		],
             ),
         ),
         (
-            name: "Search",
-            pane: Split(
-                size: "100%",
-                direction: Vertical,
-                panes: [(pane: Pane(Search), size: "100%", borders: "ALL", border_symbols: Rounded)],
-            )
-        ),
+	    name: "Artists",
+	    pane: Pane(Artists),
+	),
+	(
+	    name: "Albums",
+	    pane: Pane(Albums),
+	),
         (
-            name: "Playlists",
-            pane: Split(
-                size: "100%",
-                direction: Vertical,
-                panes: [(pane: Pane(Playlists), size: "100%", borders: "ALL", border_symbols: Rounded)],
-            )
+	    name: "Genre",
+	    pane: Split(direction: Horizontal, panes: [
+		(size: "100%", pane: Pane(Browser(root_tag: "genre", separator: ";"))),
+            ])
         ),
-        (
-            name: "Directory",
-            pane: Split(
-                size: "100%",
-                direction: Vertical,
-                panes: [(pane: Pane(Directories), size: "100%", borders: "ALL", border_symbols: Rounded)],
-            )
-        ),
+	(
+	    name: "Search",
+	    pane: Pane(Search),
+	),
     ],
 )

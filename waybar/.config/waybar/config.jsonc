@@ -1,95 +1,95 @@
 {
+
+//-----CONFIG-----//
+
     "layer": "top", 
     "position": "top", 
     "height": 28,
 
-    "modules-left": ["custom/icon","custom/icon-text","niri/workspaces","niri/window"],
-    "modules-center": ["image/album-art","mpd"],
-    "modules-right": ["wireplumber","wireplumber#source","memory","cpu","bluetooth","network","clock"],
+    "modules-left": ["custom/icon","niri/workspaces"],
+    "modules-center": ["mpd","clock","custom/cava"],
+    "modules-right": ["group/tray-group","wireplumber#source","wireplumber"],
+
+//-----LEFT-----//
 
     "custom/icon": {
 	"format": " ",
-	"tooltip-format": "System Menu\n\nSuper + Alt + Space",
-	"on-click": "/home/liam/.config/rofi/scripts/system-menu.sh"
-    },
-
-    "custom/icon-text": {
-	"format": "ATIUM",
-	"tooltip-format": "System Menu\n\nSuper + Alt + Space",
-	"on-click": "/home/liam/.config/rofi/scripts/system-menu.sh"
+	"on-click": "/home/liam/.config/rofi/scripts/menu-main.sh"
     },
 
     "niri/workspaces": {
-	"format": "<span color='#dbe6af'>SPC</span> 0{value}",
-	"current-only": true,
+	"format": "{value}",
+	"hide-empty": true,
 	"all-outputs": false
     },
 
-    "niri/window": {
-	"format": "<span color='#dbe6af'>WIN</span> {app_id}"
-    },
+//-----CENTER-----//
 
     "mpd": {
-	"format": "{stateIcon} {artist} - {album} - {title}",
+	"tooltip": false,
+	"interval": 15,
+	"format": "{artist} - {title}",
 	"format-disconnected": "!",
 	"format-stopped": "-",
-	"state-icons": {
-	    "paused": "<span color='#f7a182'>󰏤</span>",
-	    "playing": "<span color='#dbe6af'>󰐊</span>"
+	"max-length": 30,
+	"on-click": "mpc toggle",
+	"on-click-right": "foot --title=float0 -e rmpc"
+    },
+
+    "custom/cava": {
+	"exec": "python3 /home/liam/.config/waybar/cava_module.py",
+	"return-type": "json",
+    },
+
+//-----RIGHT-----//
+
+    "group/tray-group": {
+	"orientation": "inherit",
+	"drawer": {
+	    "transition-duration": 300,
+	    "click-to-reveal": true,
+	    "children-class": "tray-module"
 	},
-	"interval": 15,
+	"modules": [
+	    "custom/expand-icon", 
+	    "tray", 
+	]
+    },
+
+    "custom/expand-icon": {
 	"tooltip": false,
-	"on-click": "foot -f JetBrainsMonoNerdFont-Regular:size=10 --title=float0 -e rmpc",
-	"on-click-right": "mpc toggle"
+	"format": "",
+    },
+
+    "tray": {
+	"icon-size": 16,
+	"spacing": 17
+    },
+
+    "wireplumber#source": {
+	"tooltip": false,
+	"node-type": "Audio/Source",
+	"scroll-step": 0,
+	"format": "{icon} {volume}%",
+	"format-muted": "󰍭 0%",
+	"format-icons": "󰍬",
+	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+	"on-click-middle": "foot --title=float0 -e wiremix"
     },
 
     "wireplumber": {
-	"format": "<span color='#dbe6af'>VOL</span> {volume}%",
-	"format-muted": "<span color='#f7a182'>VOL</span> {volume}%",
-	"on-click": "foot -f JetBrainsMonoNerdFont-Regular.ttf:size=10 --title=float0 -e wiremix",
-	"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    },
-    "wireplumber#source": {
-	"node-type": "Audio/Source",
-	"format": "<span color='#dbe6af'>MIC</span> {volume}%",
-	"format-muted": "<span color='#f7a182'>MIC</span> {volume}%",
-	"on-click": "foot -f JetBrainsMonoNerdFont-Regular.ttf:size=10 --title=float0 -e wiremix",
-	"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-    },
-
-    "memory": {
-	"format": "<span color='#dbe6af'>RAM</span> {percentage}%",
-	"interval": 30,
-	"tooltip": false
-    },
-
-    "cpu": {
-	"format": "<span color='#dbe6af'>CPU</span> {usage}%",
-	"interval": 30,
 	"tooltip": false,
-    },
-
-    "bluetooth": {
-	"format": "<span color='#dbe6af'>BLU</span> {num_connections}",
-	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-	"on-click": "foot -f JetBrainsMonoNerdFont-Regular:size=10 --title=float0 -e bluetui"
-    },
-
-    "network": {
-	"format-wifi": "<span color='#dbe6af'>WIFI</span>{ifname}",
-	"format-ethernet": "<span color='#dbe6af'>ENET</span> connected",
-	"format-disconnected": "<span color='#f7a182'>NET</span> disconnected",
-	"tooltip-format-wifi": "{essid} ({signalStrength}%)",
-	"tooltip-format-ethernet": "{ifname}",
-	"tooltip-format-disconnected": "disconnected",
-	"on-click": "foot -f JetBrainsMonoNerdFont-Regular:size=10 --title=float0 -e gazelle"
+	"scroll-step": 0,
+	"format": "{icon} {volume}%",
+	"format-muted": "󰝟  0%",
+	"format-icons": ["󰕿", "󰖀", "󰕾"],
+	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+	"on-click-middle": "foot --title=float0 -e wiremix"
     },
 
     "clock": {
-        "format": "<span color='#f7a182'>{:%I:%M}</span>"
+	"tooltip": false,
+        "format": "{:%I:%M}",
     },
 
 }

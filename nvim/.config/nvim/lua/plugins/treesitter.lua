@@ -24,6 +24,7 @@ M.config = function()
     'markdown_inline',
     'python',
     'rust',
+    'ron',
     'toml',
     'typescript',
     'vim',

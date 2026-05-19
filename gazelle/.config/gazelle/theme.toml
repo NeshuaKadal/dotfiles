@@ -1,24 +1,47 @@
+# Gazelle Theme Configuration
+# Uncomment and modify these values to customize your theme
+# Colors should be in hex format (#RRGGBB) or 0xRRGGBB
 [colors.primary]
-foreground = "#d3c6aa"
-background = "#2d353b"
+foreground = "#D3C6AA"
+background = "#2D353B"
 
 [colors.normal]
-black = "#232a2e"
+black = "#343F44"
 red = "#f57f82"
-green = "#cae0a7"
-yellow = "#f5d098"
-blue = "#b2cfed"
-magenta = "#d0bbf0"
-cyan = "#ace0d4"
-white = "#d3c6aa"
+green = "#cbe3b3"
+yellow = "#cbe3b3"
+blue = "#afd9e6"
+magenta = "#f3c0e5"
+cyan = "#b3e3ca"
+white = "#D3C6AA"
 
 [colors.bright]
-black = "#232a2e"
+black = "#343F44"
 red = "#f57f82"
-green = "#cae0a7"
+green = "#cbe3b3"
 yellow = "#f5d098"
-blue = "#b2cfed"
-magenta = "#d0bbf0"
-cyan = "#ace0d4"
-white = "#d3c6aa"
+blue = "#afd9e6"
+magenta = "#f3c0e5"
+cyan = "#b3e3ca"
+white = "#D3C6AA"
 
+# TUI Style Overrides
+# Uncomment and modify these values to customize borders, spacing, etc.
+# Border styles: ascii, blank, dashed, double, heavy, hidden, hkey, inner,
+#   none, outer, panel, round, solid, tall, thick, vkey, wide
+# Spacing values use Textual CSS units (e.g. "1 2" = 1 vertical, 2 horizontal)
+[styles]
+#dialog_border = "solid"
+#dialog_width = "60"
+#dialog_padding = "1 2"
+section_border = "panel"
+#section_margin = "1 2"
+#section_padding = "0 1"
+#section_title_padding = "0 1"
+#info_section_height = "5"
+#input_height = "3"
+#button_min_width = "12"
+#cursor_opacity = "30%"
+#hover_opacity = "20%"
+#title_text_style = "bold"
+#section_title_text_style = "bold"
