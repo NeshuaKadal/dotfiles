@@ -1,0 +1,26 @@
+# ~/.config/wallust/themes/everforest-light.toml
+{
+    "special": {
+        "background": "#fdf6e3",
+        "foreground": "#5c6a72",
+        "cursor"    : "#91a77a"
+    },
+    "colors": {
+        "color0" : "#5c6a72",
+        "color1" : "#c58687",
+        "color2" : "#91a77a",
+        "color3" : "#c4aa80",
+        "color4" : "#8294ad",
+        "color5" : "#c499b8",
+        "color6" : "#719f96",
+        "color7" : "#dfddc8",
+        "color8" : "#5c6a72",
+        "color9" : "#c58687",
+        "color10": "#91a77a",
+        "color11": "#c4aa80",
+        "color12": "#8294ad",
+        "color13": "#c499b8",
+        "color14": "#719f96",
+        "color15": "#dfddc8"
+    }
+}

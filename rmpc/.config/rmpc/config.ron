@@ -46,7 +46,9 @@
             "1":          SwitchToTab("Playing"),
             "2":          SwitchToTab("Artists"),
             "3":          SwitchToTab("Albums"),
-            "4":          SwitchToTab("Search"),
+            "4":          SwitchToTab("Genres"),
+            "5":          SwitchToTab("Playlists"),
+            "6":          SwitchToTab("Search"),
             "<C-u>":      Update,
             "<C-U>":      Rescan,
             "R":          AddRandom,
@@ -125,11 +127,15 @@
 	    pane: Pane(Albums),
 	),
         (
-	    name: "Genre",
+	    name: "Genres",
 	    pane: Split(direction: Horizontal, panes: [
 		(size: "100%", pane: Pane(Browser(root_tag: "genre", separator: ";"))),
             ])
         ),
+	(
+	    name: "Playlists",
+	    pane: Pane(Playlists),
+	),
 	(
 	    name: "Search",
 	    pane: Pane(Search),

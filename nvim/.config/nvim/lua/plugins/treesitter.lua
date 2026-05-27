@@ -1,61 +1,60 @@
 -- Highlight, edit, and navigate code
 
 local M = {
-  'nvim-treesitter/nvim-treesitter',
-
-  lazy = false,
-  branch = 'main',
-  build = ':TSUpdate',
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    branch = 'main',
+    build = ':TSUpdate',
 }
 
 M.config = function()
-  -- Keep alphabetical order when managing this list
-  local parsers = {
-    'bash',
-    'c',
-    'comment',
-    'css',
-    'go',
-    'html',
-    'javascript',
-    'json',
-    'lua',
-    'markdown',
-    'markdown_inline',
-    'python',
-    'rust',
-    'ron',
-    'toml',
-    'typescript',
-    'vim',
-    'vimdoc',
-    'xml',
-    'yaml',
-  }
+    -- Keep alphabetical order when managing this list
+    local parsers = {
+	'bash',
+	'c',
+	'comment',
+	'css',
+	'go',
+	'html',
+	'javascript',
+	'json',
+	'lua',
+	'markdown',
+	'markdown_inline',
+	'python',
+	'rust',
+	'ron',
+	'toml',
+	'typescript',
+	'vim',
+	'vimdoc',
+	'xml',
+	'yaml',
+    }
 
-  require('nvim-treesitter').install(parsers)
+    require('nvim-treesitter').install(parsers)
 
-  vim.api.nvim_create_autocmd('FileType', {
-    callback = function(args)
-      local buf, filetype = args.buf, args.match
+    vim.api.nvim_create_autocmd('FileType', {
+	callback = function(args)
+	    local buf, filetype = args.buf, args.match
 
-      local language = vim.treesitter.language.get_lang(filetype)
-      if not language then
-        return
-      end
+	    local language = vim.treesitter.language.get_lang(filetype)
+	    if not language then
+		return
+	    end
 
-      -- check if parser exists and load it
-      if not vim.treesitter.language.add(language) then
-        return
-      end
+	    -- check if parser exists and load it
+	    if not vim.treesitter.language.add(language) then
+		return
+	    end
 
-      -- enables syntax highlighting and other treesitter features
-      vim.treesitter.start(buf, language)
+	    -- enables syntax highlighting and other treesitter features
+	    vim.treesitter.start(buf, language)
 
-      -- enables treesitter based indentation
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end,
-  })
+	    -- enables treesitter based indentation
+	    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+    })
 end
 
 return M

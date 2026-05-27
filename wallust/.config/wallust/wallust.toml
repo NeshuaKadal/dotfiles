@@ -1,0 +1,6 @@
+# ~/.config/wallust/wallust.toml
+
+palette = "dark16"
+
+[templates]
+foot = { template = 'foot', target = '~/.config/foot/foot.ini' }

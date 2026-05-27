@@ -2,13 +2,13 @@
 
 //-----CONFIG-----//
 
-    "layer": "top", 
-    "position": "top", 
+    "layer": "top",
+    "position": "top",
     "height": 28,
 
     "modules-left": ["custom/icon","niri/workspaces"],
-    "modules-center": ["mpd","clock","custom/cava"],
-    "modules-right": ["group/tray-group","wireplumber#source","wireplumber"],
+    "modules-center": ["custom/cava-left","mpd","custom/cava-right"],
+    "modules-right": ["group/tray-group","wireplumber#source","wireplumber","clock"],
 
 //-----LEFT-----//
 
@@ -25,20 +25,26 @@
 
 //-----CENTER-----//
 
+    "custom/cava-left": {
+	"exec": "python3 /home/liam/.config/waybar/cava_module_left.py",
+	"return-type": "json",
+	"rotate": 180,
+    },
+
     "mpd": {
 	"tooltip": false,
 	"interval": 15,
 	"format": "{artist} - {title}",
 	"format-disconnected": "!",
 	"format-stopped": "-",
-	"max-length": 30,
 	"on-click": "mpc toggle",
 	"on-click-right": "foot --title=float0 -e rmpc"
     },
 
-    "custom/cava": {
-	"exec": "python3 /home/liam/.config/waybar/cava_module.py",
+    "custom/cava-right": {
+	"exec": "python3 /home/liam/.config/waybar/cava_module_right.py",
 	"return-type": "json",
+	"rotate": 180,
     },
 
 //-----RIGHT-----//
@@ -51,8 +57,8 @@
 	    "children-class": "tray-module"
 	},
 	"modules": [
-	    "custom/expand-icon", 
-	    "tray", 
+	    "custom/expand-icon",
+	    "tray",
 	]
     },
 

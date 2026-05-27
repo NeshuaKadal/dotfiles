@@ -7,11 +7,9 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-
 alias c='clear'
+
 alias f='fastfetch'
-alias m='unimatrix -l s'
-alias v='nvim'
 alias sv='sudo nvim'
 
 alias update='sudo pacman -Syu'

@@ -5,7 +5,7 @@ import subprocess
 import tempfile
 import json
 
-BARS_NUMBER = 30
+BARS_NUMBER = 15
 # OUTPUT_BIT_FORMAT = "8bit"
 OUTPUT_BIT_FORMAT = "16bit"
 # RAW_TARGET = "/tmp/cava.fifo"
@@ -26,6 +26,7 @@ method = raw
 raw_target = %s
 bit_format = %s
 channels = mono
+reverse = 1
 """
 
 config = conpat % (BARS_NUMBER, SENSITIVITY, RAW_TARGET, OUTPUT_BIT_FORMAT)
