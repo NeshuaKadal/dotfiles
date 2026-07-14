@@ -2,6 +2,7 @@
 configuration {
     show-icons: true;
     hover-select: true;
+    scroll-method: 1;
 }
 
 /*****----- Global Properties -----*****/
@@ -15,19 +16,19 @@ window {
     location:                    north;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    width:                       1100px;
     x-offset:                    0px;
-    y-offset:                    8px;
+    y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      2px solid;
+    border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     cursor:                      "default";
-    background-color:            @background-rgba;
+    background-color:            @background-alpha;
 }
 
 /*****----- Main Box -----*****/
@@ -38,21 +39,21 @@ mainbox {
     padding:                     16px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
-    enabled:                     true;
+    enabled:                     false;
     spacing:                     8px;
     margin:                      0px;
     padding:                     8px;
     border:                      0px;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @purple;
+    border-color:                @foreground;
+    background-color:            @color5;
     text-color:                  @background;
     children:                    [textbox-prompt-colon, prompt];
 }
@@ -81,8 +82,8 @@ message {
     padding:                     8px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background-alt;
+    border-color:                @foreground;
+    background-color:            @background;
     text-color:                  @foreground;
 }
 textbox {
@@ -98,7 +99,7 @@ error-message {
     padding:                     8px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            @background;
     text-color:                  @foreground;
 }
@@ -112,17 +113,17 @@ listview {
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
-    flow:			 horizontal;
+//    flow:			 horizontal;
     reverse:                     false;
     fixed-height:                false;
     fixed-columns:               true;
     
-    spacing:                     8px;
+    spacing:                     16px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -134,11 +135,11 @@ element {
     orientation:		 vertical;
     spacing:                     0px;
     margin:                      0px;
-    padding:                     8px;
+    padding:                     2px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background-alt;
+    border-color:                @foreground;
+    background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
@@ -146,7 +147,7 @@ element-icon {
     padding: 0px;
     background-color:		 transparent;
     text-color:			 inherit;
-    size:			 200px;
+    size:			 300px;
     cursor:			 inherit;
 }
 element-text {
@@ -158,6 +159,6 @@ element-text {
     horizontal-align:            0;
 }
 element selected.normal {
-    background-color:            var(selected);
+    background-color:            var(foreground);
     text-color:                  var(background);
 }

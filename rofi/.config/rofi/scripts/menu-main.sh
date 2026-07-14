@@ -16,7 +16,7 @@ choice=$(printf "$options" | rofi \
 -format i \
 -mesg "$playing" \
 -p "Start" \
--theme ../modules/menu-main.rasi \
+-theme ~/.config/rofi/modules/menu-main.rasi \
 )
 
 case "$choice" in

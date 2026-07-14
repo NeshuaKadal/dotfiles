@@ -2,23 +2,17 @@
 
 uptime=$(uptime -p | awk -F 'up ' '{print $2}')
 
-options="\
- Lock		\n\
- Suspend	\n\
- Reboot	\n\
- Shutdown	\n\
-"
+options="\n\n\n"
 
 choice=$(printf "$options" | rofi \
     -dmenu \
     -format i \
-    -p "$HOSTNAME" \
-    -mesg "Uptime: $uptime" \
-    -theme ../modules/menu-power.rasi \
+    -p "Power" \
+    -theme ~/.config/rofi/modules/menu-power.rasi \
 )
 
 confirm() {
-    res=$(printf "No\nYes" | rofi -dmenu -format i -p "Are you sure?" -theme ../modules/menu-confirm.rasi)
+    res=$(printf "NO\nYES" | rofi -dmenu -format i -p "Confirm" -theme ~/.config/rofi/modules/menu-confirm-power.rasi)
     [[ "$res" == "1"  ]]
 }
 
@@ -27,8 +21,9 @@ case "$choice" in
 	hyprlock
 	;;
     1)
-	systemctl suspend
+	hyprlock & wait 1 & systemctl suspend
 	;;
+
     2)
 	if confirm; then
 	    systemctl reboot

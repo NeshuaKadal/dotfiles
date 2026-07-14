@@ -1,0 +1,18 @@
+layout {
+    focus-ring {
+        active-color   "{{foreground}}"
+        inactive-color "{{color6}}"
+        urgent-color   "{{color4}}"
+    }
+    border {
+        active-color   "{{foreground}}"
+        inactive-color "{{color6}}"
+        urgent-color   "{{color4}}"
+    }
+    tab-indicator {
+        active-color   "{{foreground}}"
+        inactive-color "{{color6}}"
+        urgent-color   "{{color4}}"
+    }
+}
+

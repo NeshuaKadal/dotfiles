@@ -7,54 +7,29 @@
     "height": 28,
 
     "modules-left": ["custom/icon","niri/workspaces"],
-    "modules-center": ["custom/cava-left","mpd","custom/cava-right"],
-    "modules-right": ["group/tray-group","wireplumber#source","wireplumber","clock"],
+    "modules-center": ["clock", "cava"],
+    "modules-right": ["group/tray-group","group/audio","idle_inhibitor"],
 
-//-----LEFT-----//
+//---------------//
 
     "custom/icon": {
-	"format": " ",
-	"on-click": "/home/liam/.config/rofi/scripts/menu-main.sh"
+	"tooltip": true,
+	"tooltip-format": "Power        MOD + ESC\n\nLock         MOD + L\n\nOverview     MOD + O\n\nWallpapers   MOD + W\n\nApps         MOD + SPC",
+	"format": "",
+	"on-click-right": "/home/liam/.config/rofi/scripts/menu-power.sh",
+	"on-click": "niri msg action toggle-overview",
     },
 
     "niri/workspaces": {
-	"format": "{value}",
-	"hide-empty": true,
-	"all-outputs": false
+	"format": "{index}",
     },
-
-//-----CENTER-----//
-
-    "custom/cava-left": {
-	"exec": "python3 /home/liam/.config/waybar/cava_module_left.py",
-	"return-type": "json",
-	"rotate": 180,
-    },
-
-    "mpd": {
-	"tooltip": false,
-	"interval": 15,
-	"format": "{artist} - {title}",
-	"format-disconnected": "!",
-	"format-stopped": "-",
-	"on-click": "mpc toggle",
-	"on-click-right": "foot --title=float0 -e rmpc"
-    },
-
-    "custom/cava-right": {
-	"exec": "python3 /home/liam/.config/waybar/cava_module_right.py",
-	"return-type": "json",
-	"rotate": 180,
-    },
-
-//-----RIGHT-----//
 
     "group/tray-group": {
 	"orientation": "inherit",
 	"drawer": {
 	    "transition-duration": 300,
 	    "click-to-reveal": true,
-	    "children-class": "tray-module"
+	    "transition-left-to-right": false
 	},
 	"modules": [
 	    "custom/expand-icon",
@@ -72,30 +47,73 @@
 	"spacing": 17
     },
 
-    "wireplumber#source": {
-	"tooltip": false,
-	"node-type": "Audio/Source",
-	"scroll-step": 0,
-	"format": "{icon} {volume}%",
-	"format-muted": "󰍭 0%",
-	"format-icons": "󰍬",
-	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-	"on-click-middle": "foot --title=float0 -e wiremix"
+    "group/audio": {
+	"orientation": "horizontal",
+	"drawer": {
+	    "transition-duration": 300,
+	    "transition-left-to-right": false
+	},
+	"modules": [
+	    "wireplumber",
+	    "pulseaudio/slider"
+	]
+    },
+    "pulseaudio/slider": {
+	"min": 0,
+	"max": 100,
+	"orientation": "horizontal",
     },
 
     "wireplumber": {
-	"tooltip": false,
+	"tooltip": true,
+	"tooltip-format": "Volume: {volume}%",
 	"scroll-step": 0,
-	"format": "{icon} {volume}%",
-	"format-muted": "󰝟  0%",
-	"format-icons": ["󰕿", "󰖀", "󰕾"],
+	"format": "{icon}",
+	"format-muted": "",
+	"format-icons": ["", "", ""],
 	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 	"on-click-middle": "foot --title=float0 -e wiremix"
     },
 
     "clock": {
 	"tooltip": false,
-        "format": "{:%I:%M}",
+        "format": "{:%A %I:%M}",
+        "format-alt": "{:%B %d %Y}",
+    },
+
+    "idle_inhibitor": {
+	"tooltip": true,
+	"tooltip-format": "Idle Inhibitor",
+	"tooltip-format-activated": "{icon} MACHINE CAFFEINATED!!!",
+	"tooltip-format-deactivated": "{icon} Machine Drowsy...",
+	"format": "{icon}",
+	"format-icons": {
+	    "activated": " ",
+	    "deactivated": " "
+	}
+    },
+
+    "cava": {
+	//"cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+	"framerate": 30,
+	"autosens": 1,
+	//"sensitivity": 100,
+	"bars": 14,
+	"lower_cutoff_freq": 50,
+	"higher_cutoff_freq": 10000,
+	"method": "pulse",
+	"source": "auto",
+	"stereo": true,
+	"reverse": false,
+	"bar_delimiter": 0,
+	"monstercat": false,
+	"waves": false,
+	"noise_reduction": 0.77,
+	"input_delay": 2,
+	"format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+	"actions": {
+	    "on-click-right": "mode"
+	}
     },
 
 }

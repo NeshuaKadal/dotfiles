@@ -8,26 +8,30 @@ configuration {
 @import "../colors.rasi"
 @import "../fonts.rasi"
 
+* {
+    font: "JetBrains Mono Propo Nerd Font 20";
+}
+
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    north west;
+    location:                    north;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       400px;
-    x-offset:                    8px;
-    y-offset:                    8px;
+    width:                       300px;
+    x-offset:                    0px;
+    y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      2px solid;
+    border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     cursor:                      "default";
-    background-color:            @background-rgba;
+    background-color:            @background-alpha;
 }
 
 /*****----- Main Box -----*****/
@@ -38,27 +42,27 @@ mainbox {
     padding:                     16px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
-    enabled:                     true;
+    enabled:                     false;
     spacing:                     8px;
     margin:                      0px;
     padding:                     8px;
     border:                      0px;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @red;
+    border-color:                @foreground;
+    background-color:            @color1;
     text-color:                  @background;
     children:                    [textbox-prompt-colon, prompt];
 }
 
 textbox-prompt-colon {
-    enabled:                     true;
+    enabled:                     false;
     expand:                      false;
     str:                         " ";
     padding:                     0px 2px;
@@ -67,7 +71,7 @@ textbox-prompt-colon {
     text-color:                  @background;
 }
 prompt {
-    enabled:                     true;
+    enabled:                     false;
     padding:                     0px;
     border-radius:               0px;
     background-color:            transparent;
@@ -76,13 +80,13 @@ prompt {
 
 /*****----- Message -----*****/
 message {
-    enabled:                     true;
+    enabled:                     false;
     margin:                      0px;
     padding:                     8px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background-alt;
+    border-color:                @foreground;
+    background-color:            @background;
     text-color:                  @foreground;
 }
 textbox {
@@ -98,7 +102,7 @@ error-message {
     padding:                     8px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            @background;
     text-color:                  @foreground;
 }
@@ -106,8 +110,8 @@ error-message {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     1;
-    lines:                       4;
+    columns:                     4;
+    lines:                       1;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -116,12 +120,12 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     8px;
+    spacing:                     16px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -135,8 +139,8 @@ element {
     padding:                     8px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background-alt;
+    border-color:                @foreground;
+    background-color:            @background;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
@@ -146,9 +150,9 @@ element-text {
     text-color:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0;
+    horizontal-align:            0.25;
 }
 element selected.normal {
-    background-color:            var(selected);
+    background-color:            var(foreground);
     text-color:                  var(background);
 }

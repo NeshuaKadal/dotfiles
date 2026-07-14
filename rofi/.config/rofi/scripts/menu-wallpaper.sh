@@ -2,7 +2,7 @@
 
 wall_dir="${HOME}/Pictures/Wallpapers"
 cache_dir="${HOME}/.cache/wallpaper-previews"
-rofi="rofi -dmenu -i -p Wallpaper -theme ../modules/menu-wallpaper.rasi"
+rofi="rofi -dmenu -i -p Wallpaper -theme ~/.config/rofi/modules/menu-wallpaper.rasi"
 
 if [ ! -d "${cache_dir}" ] ; then
         mkdir -p "${cache_dir}"
@@ -26,8 +26,10 @@ wall_selection=$(find "${wall_dir}" -maxdepth 1 -type f \
 [[ -n "$wall_selection" ]] || exit 1
 
 pkill swaybg
-swaybg -i "${wall_dir}/${wall_selection}" -m fill &
-disown
+swaybg -i "${wall_dir}/${wall_selection}" -m fill & disown
+wallust run "${wall_dir}/${wall_selection}"
+killall waybar & sleep 1 && waybar
+makoctl reload
 
 echo "${wall_dir}/${wall_selection}" > "${HOME}/.cache/current-wallpaper"
 

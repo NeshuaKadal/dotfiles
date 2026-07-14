@@ -10,7 +10,7 @@ rofi="rofi 				\
 -dmenu 					\
 -format i 				\
 -p "System" 				\
--theme ../modules/menu-system.rasi 	\
+-theme ~/.config/rofi/modules/menu-system.rasi 	\
 "
 
 choice=$(printf "$options" | $rofi)

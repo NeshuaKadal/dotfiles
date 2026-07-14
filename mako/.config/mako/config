@@ -6,13 +6,10 @@ border-size=2
 padding=8
 margin=0
 
-background-color=#2d353bcc
-text-color=#d3c6aa
-border-color=#cbe3b3
-progress-color=over #2D353B
+background-color=#242020D9
+text-color=#E9E0E5
+border-color=#907D87
+progress-color=over #242020
 
 icons=1
 max-icon-size=64
-
-[urgency=high]
-border-color=#f7a182

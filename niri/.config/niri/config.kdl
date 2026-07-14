@@ -1,5 +1,5 @@
 // Imports
-include "everforest.kdl"
+include "colors.kdl"
 
 // Startup
 spawn-at-startup "waybar"
@@ -28,21 +28,22 @@ binds {
 
     // Macros
 
-    Ctrl+Space { spawn-sh "bash -c ~/.config/scripts/stardew-cancel.sh"; }
+    //Ctrl+Space { spawn-sh "bash -c ~/.config/scripts/stardew-cancel.sh"; }
 
-    // Apps
+    // Applications
     Mod+Return 		{ spawn "foot"; }
-    Mod+Alt+Y 		{ spawn-sh "foot -e yazi"; }
-    Mod+Alt+R 		{ spawn-sh "foot -e rmpc"; }
-    Mod+Alt+B 		{ spawn "brave-origin-beta"; }
+    Mod+E 		{ spawn-sh "foot -e yazi"; }
+    Mod+B 		{ spawn "brave-origin-beta"; }
 
     // Floating Apps
     Mod+Shift+Return 	{ spawn-sh "foot --title=float0";}
 
-    // Rofi
-    Mod+Space { spawn-sh "~/.config/rofi/scripts/menu-drun.sh"; }
-    Mod+Alt+Space { spawn-sh "~/.config/rofi/scripts/menu-main.sh"; }
-    Mod+Alt+W { spawn-sh "~//.config/rofi/scripts/menu-wallpaper.sh"; }
+    // Shell
+    Mod+Space 		{ spawn-sh "~/.config/rofi/scripts/menu-drun.sh"; }
+    Mod+Escape 		{ spawn-sh "~//.config/rofi/scripts/menu-power.sh"; }
+    Mod+W 		{ spawn-sh "~//.config/rofi/scripts/menu-wallpaper.sh"; }
+    Mod+L 		{ spawn "hyprlock"; }
+
 
     // Function
     Ctrl+Alt+R { spawn-sh "killall waybar & sleep 1 && waybar"; }
@@ -52,11 +53,7 @@ binds {
     XF86AudioRaiseVolume 	allow-when-locked=true 	{ spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0"; }
     XF86AudioLowerVolume 	allow-when-locked=true 	{ spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
     XF86AudioMute 		allow-when-locked=true 	{ spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-
-    Shift+XF86AudioRaiseVolume 	allow-when-locked=true 	{ spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.01+ -l 1.0"; }
-    Shift+XF86AudioLowerVolume 	allow-when-locked=true 	{ spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.01-"; }
     Shift+XF86AudioMute 	allow-when-locked=true	{ spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
     XF86AudioPlay        	allow-when-locked=true 	{ spawn-sh "mpc toggle"; }
     XF86AudioPrev        	allow-when-locked=true 	{ spawn-sh "mpc prev"; }
     XF86AudioNext        	allow-when-locked=true 	{ spawn-sh "mpc next"; }
@@ -78,16 +75,16 @@ binds {
     Mod+End 		{ focus-column-last; }
 
     // Control
-    Mod+Ctrl+Up 	{ move-column-to-workspace-up; }
-    Mod+Ctrl+Down 	{ move-column-to-workspace-down; }
-    Mod+Ctrl+Left 	{ move-column-left; }
-    Mod+Ctrl+Right 	{ move-column-right; }
+    Mod+Shift+Up 	{ move-column-to-workspace-up; }
+    Mod+Shift+Down 	{ move-column-to-workspace-down; }
+    Mod+Shift+Left 	{ move-column-left; }
+    Mod+Shift+Right 	{ move-column-right; }
 
-    Mod+Ctrl+Page_Up   	{ move-workspace-up; }
-    Mod+Ctrl+Page_Down 	{ move-workspace-down; }
+    Mod+Shift+Page_Up   	{ move-workspace-up; }
+    Mod+Shift+Page_Down 	{ move-workspace-down; }
 
-    Mod+Ctrl+Home 	{ move-column-to-first; }
-    Mod+Ctrl+End  	{ move-column-to-last; }
+    Mod+Shift+Home 	{ move-column-to-first; }
+    Mod+Shift+End  	{ move-column-to-last; }
 
     // Workspace
     Mod+1 { focus-workspace 1; }
@@ -102,21 +99,21 @@ binds {
     
     Mod+Tab { focus-workspace-previous; }
 
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
 
     // Stack
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
     // Proportion
     Mod+R { switch-preset-column-width; }
@@ -233,9 +230,18 @@ overview {
     }
 }
 
+// Configure Blur
+blur {
+    passes 3
+    offset  3.0
+    noise 0.06
+    saturation 1.5
+}
+
+
 // Window Rules
 window-rule {
-    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id="" title="^Picture-in-picture$"
     open-floating true
     default-column-width { fixed 480; }
     default-window-height { fixed 270; }
@@ -244,7 +250,7 @@ window-rule {
 
 // Block 1Password from screen capture.
 window-rule {
-    match app-id=r#"^com\.1password\.1password$"#
+    match app-id="^1password$"
     block-out-from "screen-capture"
 }
 
@@ -254,7 +260,7 @@ window-rule {
     open-floating true
     default-column-width { proportion 0.25; }
     default-window-height { proportion 0.50; }
-}   
+}
 
 // Enable blur
 window-rule {
@@ -264,22 +270,16 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="rofi"
-    match namespace="waybar"
-    match namespace="notifications"
+    match namespace="^rofi$"
+    match namespace="^waybar$"
+    match namespace="^notifications$"
     background-effect {
 	blur true
+	//xray false
     }
 }
 
 layer-rule {
-    match namespace="notifications"
-    background-effect {
-	blur true
-	xray false
-    }
-}
-
-layer-rule {
+    match namespace="^wallpaper$"
     place-within-backdrop true
 }

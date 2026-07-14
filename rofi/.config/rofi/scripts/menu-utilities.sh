@@ -12,7 +12,7 @@ choice=$(printf "$options" | rofi \
     -dmenu \
     -format i \
     -p "Utilities" \
-    -theme ../modules/menu-utilities.rasi \
+    -theme ~/.config/rofi/modules/menu-utilities.rasi \
 )
 
 case "$choice" in

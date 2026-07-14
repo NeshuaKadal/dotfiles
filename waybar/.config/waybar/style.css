@@ -1,38 +1,7 @@
 
 /*-----Theme-----*/
 
-@define-color red 	#f57f82;
-@define-color orange 	#f7a182;
-@define-color yellow 	#f5d098;
-@define-color lime 	#dbe6af;
-@define-color green 	#cae0a7;
-@define-color aqua 	#addeb9;
-@define-color skye 	#ace0d4;
-@define-color snow 	#afdfe6;
-@define-color blue 	#b2cfed;
-@define-color purple 	#d0bbf0;
-@define-color pink 	#f3c0e5;
-@define-color cherry 	#f6cee5;
-@define-color text 	#d3C6aa;
-@define-color fg2 	#adc9bc;
-@define-color fg1 	#96b4aa;
-@define-color fg0 	#839e9a;
-@define-color bg5 	#56635F;
-@define-color bg4 	#4F585E;
-@define-color bg3 	#475258;
-@define-color bg2 	#3D484D;
-@define-color bg1 	#343F44;
-@define-color bg0 	#2D353B;
-@define-color bg-rgba 	rgba(45, 53, 59, 0.50);
-@define-color bg-dim 	#232A2E;
-
-/*-----Colour-----*/
-
-@define-color background @bg0;
-@define-color background-alt @bg1;
-@define-color foreground @text;
-@define-color accent @green;
-@define-color special @yellow;
+@import url("colors.css");
 
 /*-----Global-----*/
 
@@ -41,22 +10,22 @@
     border-radius: 0;
     font-family: 'JetBrainsMono Nerd Font';
     font-size: 13px;
+    font-weight: 600;
     min-height: 0;
 }
 
 window#waybar {
+    background: @background;
 }
 
 tooltip {
-    padding: 2px;
 }
 
 tooltip label {
 }
 
-/*-----Common-----*/
+/*-----Misc-----*/
 
-window#waybar,
 tooltip,
 tooltip label {
     background-color: @background;
@@ -68,23 +37,27 @@ tooltip label {
 #clock,
 #custom-cava-left, #custom-cava-right,
 #custom-expand-icon,
+#custom-icon,
+#idle-inhibitor,
 #tray,
 #wireplumber {
-    background-color: @background-alt;
     color: @foreground;
+}
+
+#custom-separator {
+    font-size: 20px;
+    font-weight: 400;
+    color: @color0;
 }
 
 /*-----Left-----*/
 
 #custom-icon {
-    background-image: url('/home/liam/.config/themes/images/bendalloy-bg0.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: @special;
-    padding: 0px 7px;
+    font-family: 'JetBrainsMono Nerd Font Propo';
+    padding: 0px 6px 0px 5px;
     margin: 2px;
     font-size: 17px;
+    font-weight: bold;
 }
 
 #workspaces {
@@ -92,44 +65,44 @@ tooltip label {
 
 #workspaces button {
     padding: 0px 4px;
-    margin: 2px;
+    margin: 0px 2px;
+    color: @color6;
 }
 
 #workspaces button:hover {
     box-shadow: none;
     text-shadow: none;
     transition: none;
-    background: @background-alt;
+    background: none;
 }
 
 #workspaces button.focused {
-    font-weight: bold;
-    background-color: @accent;
-    color: @background;
+    color: @foreground;
 }
 
 /*-----Center-----*/
 
 #mpd {
     padding: 0px 10px;
-    margin: 2px 0px;
+    margin: 0px 2px 0px;
 }
 
 #custom-cava-left, #custom-cava-right{
     padding: 0px 10px;
-    margin: 2px 0px;
+    margin: 0px 2px 0px;
 }
 
 /*-----Right-----*/
 
 #custom-expand-icon{
     padding: 0px 10px;
-    margin: 2px;
+    margin: 0px 2px;
+    color: @color0;
 }
 
 #tray{
     padding: 0px 10px;
-    margin: 2px;
+    margin: 0px 2px;
 }
 
 #tray menu{
@@ -138,14 +111,52 @@ tooltip label {
     border: 0px;
 }
 
+#pulseaudio-slider {
+    min-width: 120px;
+}
+
+#pulseaudio-slider slider {
+    background: transparent;
+}
+
+#pulseaudio-slider trough {
+    min-height: 4px;
+    background: @color0;
+}
+
+#pulseaudio-slider highlight {
+    background: @color6;
+}
+
 #wireplumber{
     padding: 0px 10px;
-    margin: 2px;
+    margin: 0px 2px;
+}
+
+#wireplumber.muted{
+    color: @color6;
 }
 
 #clock {
     padding: 0px 10px;
+    margin: 0px 2px;
+    color: @foreground;
+}
+
+#idle_inhibitor {
+    padding: 0px 10px;
+    margin: 0px 2px;
+}
+
+#idle_inhibitor.deactivated {
+    color: @color6
+}
+
+#custom-power {
+    font-family: 'JetBrainsMono Nerd Font Propo';
+    background-color: @color2;
+    padding: 0px 7px;
     margin: 2px;
-    
-    color: @accent;
+    font-size: 17px;
+    font-weight: bold;
 }

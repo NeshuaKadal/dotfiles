@@ -1,6 +1,13 @@
 # ~/.config/wallust/wallust.toml
 
 palette = "dark16"
+backend = "wal"
 
 [templates]
-foot = { template = 'foot', target = '~/.config/foot/foot.ini' }
+example = { template = 'current.md', target = '~/.config/wallust/current.md' }
+foot = { template = 'foot.ini', target = '~/.config/foot/colors.ini' }
+niri = { template = 'niri.kdl', target = '~/.config/niri/colors.kdl' }
+waybar = { template = 'waybar.css', target = '~/.config/waybar/colors.css' }
+rofi = { template = 'rofi.rasi', target = '~/.config/rofi/colors.rasi' }
+mako = { template = 'mako', target = '~/.config/mako/config' }
+hyprlock = { template = 'hyprlock.conf', target = '~/.config/hypr/hyprlock.conf' }
