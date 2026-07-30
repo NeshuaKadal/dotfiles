@@ -1,18 +1,21 @@
 layout {
     focus-ring {
         active-color   "{{foreground}}"
-        inactive-color "{{color6}}"
+        inactive-color "rgba({{foreground | rgb}},0.25)"
         urgent-color   "{{color4}}"
     }
     border {
         active-color   "{{foreground}}"
-        inactive-color "{{color6}}"
+        inactive-color "rgba({{foreground | rgb}},0.25)"
         urgent-color   "{{color4}}"
     }
     tab-indicator {
         active-color   "{{foreground}}"
-        inactive-color "{{color6}}"
+        inactive-color "rgba({{foreground | rgb}},0.25)"
         urgent-color   "{{color4}}"
+    }
+    insert-hint {
+        color "rgba({{color4 | rgb}},0.5)"
     }
 }
 

@@ -10,12 +10,10 @@ alias grep='grep --color=auto'
 alias c='clear'
 
 alias f='fastfetch'
-alias sv='sudo nvim'
+alias V='sudo nvim'
+alias v='nvim'
 
 alias update='sudo pacman -Syu'
 alias clean='sudo pacman -Rns $(pacman -Qdtq)'
-alias please='sudo $history -p !!)'
 
 PS1='[\u@\h \W]\$ '
-
-fastfetch

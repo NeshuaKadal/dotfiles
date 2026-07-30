@@ -1,0 +1,5 @@
+[config]
+
+[templates.newshell]
+input_path = '~/.config/quickshell/newShell/matugen/templates/colors.json'
+output_path = '~/.local/state/quickshell/generated/colors.json'
