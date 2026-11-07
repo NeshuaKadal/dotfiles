@@ -1,0 +1,22 @@
+[config]
+
+[templates.shell]
+input_path = '~/.config/quickshell/hyprshell/matugen/templates/quickshell.json'
+output_path = '~/.local/state/quickshell/colors.json'
+
+[templates.foot]
+input_path = '~/.config/quickshell/hyprshell/matugen/templates/foot'
+output_path = '~/.config/foot/themes/quickshell'
+
+[templates.hyprland]
+input_path = '~/.config/quickshell/hyprshell/matugen/templates/hyprland.lua'
+output_path = '~/.config/hypr/colors.lua'
+
+[config.custom_colors]
+red     = { color = "#e25252", blend = true }
+orange  = { color = "#ee923a", blend = true }
+yellow  = { color = "#efbd30", blend = true }
+green   = { color = "#87b158", blend = true }
+cyan    = { color = "#55bcd4", blend = true }
+blue    = { color = "#5294e2", blend = true }
+magenta = { color = "#ca71df", blend = true }

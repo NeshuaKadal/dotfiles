@@ -23,7 +23,7 @@ return {
 	    require('mini.files').setup()
 	    require('mini.pick').setup()
 	    -- Appearance
-	    require('mini.animate').setup()
+	    require('mini.animate').setup({ scroll = { enable = false  } })
 	    require('mini.cursorword').setup()
 	    require('mini.hipatterns').setup()
 	    require('mini.icons').setup()

@@ -1,203 +1,60 @@
 // Imports
-include "colors.kdl"
+include "noctaliaRules.kdl"
+include "keybinds.kdl"
+include "rules.kdl"
 
 // Startup
 spawn-at-startup "mpd"
+spawn-at-startup "zen-browser"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-sh-at-startup "qs -c newShell"
+spawn-sh-at-startup "noctalia"
 
 // Preferences
 prefer-no-csd
-
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
 hotkey-overlay {
     skip-at-startup
     hide-not-bound
 }
-
 clipboard {
     disable-primary
 }
-
-// Keybindings
-binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
-    // Macros
-
-    //Ctrl+Space { spawn-sh "bash -c ~/.config/scripts/stardew-cancel.sh"; }
-
-    // Applications
-    Mod+Return 		{ spawn "foot"; }
-    Mod+E 		{ spawn-sh "foot -e yazi"; }
-    Mod+B 		{ spawn "brave-origin-beta"; }
-
-    // Quickshell
-    Mod+V               { spawn-sh "qs -c newShell ipc call menu open volume"; }
-    Mod+N               { spawn-sh "qs -c newShell ipc call menu open notifications"; }
-
-    // Floating Apps
-    Mod+Shift+Return 	{ spawn-sh "foot --title=float0";}
-
-    // Rofi
-    Mod+Space 		{ spawn-sh "~/.config/rofi/scripts/menu-drun.sh"; }
-    Mod+Escape 		{ spawn-sh "~//.config/rofi/scripts/menu-power.sh"; }
-    Mod+W 		{ spawn-sh "~//.config/rofi/scripts/menu-wallpaper.sh"; }
-
-    // Function
-    Mod+L 		{ spawn "hyprlock"; }
-    Mod+S               { spawn-sh "hyprpicker -anrf hex"; }
-    Mod+O repeat=false  { toggle-overview; }
-    Mod+Q repeat=false  { close-window; }
-    Print repeat=false  { screenshot; }
-    Shift+Print         { screenshot-screen; }
-    Ctrl+Print          { screenshot-window; }
-
-    // Media
-    Alt+Equal           { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0"; }
-    Alt+Minus           { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
-    Alt+0               { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    Alt+9               { spawn-sh "mpc next"; }
-    Alt+8               { spawn-sh "mpc toggle"; }
-    Alt+7               { spawn-sh "mpc prev"; }
-
-    Alt+Shift+M         { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    Alt+M               { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-
-    Alt+Up              { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0"; }
-    Alt+Down            { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
-
-    Alt+Right           { spawn-sh "mpc next"; }
-    Alt+Space           { spawn-sh "mpc toggle"; }
-    Alt+Left            { spawn-sh "mpc prev"; }
-
-    // Navigation
-    Mod+Up 		{ focus-workspace-up; }
-    Mod+Down 		{ focus-workspace-down; }
-    Mod+Left 		{ focus-column-left; }
-    Mod+Right 		{ focus-column-right; }
-
-    Mod+Page_Up 	{ focus-window-up; }
-    Mod+Page_Down 	{ focus-window-down; }
-
-    Mod+Shift+Up 	{ move-column-to-workspace-up; }
-    Mod+Shift+Down 	{ move-column-to-workspace-down; }
-    Mod+Shift+Left 	{ move-column-left; }
-    Mod+Shift+Right 	{ move-column-right; }
-
-    Mod+Tab             { focus-workspace-previous; }
-
-    Mod+1               { focus-workspace 1; }
-    Mod+2               { focus-workspace 2; }
-    Mod+3               { focus-workspace 3; }
-    Mod+4               { focus-workspace 4; }
-    Mod+5               { focus-workspace 5; }
-    Mod+6               { focus-workspace 6; }
-    Mod+7               { focus-workspace 7; }
-    Mod+8               { focus-workspace 8; }
-    Mod+9               { focus-workspace 9; }
-
-    Mod+Shift+1         { move-column-to-workspace 1; }
-    Mod+Shift+2         { move-column-to-workspace 2; }
-    Mod+Shift+3         { move-column-to-workspace 3; }
-    Mod+Shift+4         { move-column-to-workspace 4; }
-    Mod+Shift+5         { move-column-to-workspace 5; }
-    Mod+Shift+6         { move-column-to-workspace 6; }
-    Mod+Shift+7         { move-column-to-workspace 7; }
-    Mod+Shift+8         { move-column-to-workspace 8; }
-    Mod+Shift+9         { move-column-to-workspace 9; }
-
-    // Columns
-    Mod+BracketLeft     { consume-or-expel-window-left; }
-    Mod+BracketRight    { consume-or-expel-window-right; }
-
-    Mod+T               { toggle-column-tabbed-display; }
-
-    // Proportion
-    Mod+R               { switch-preset-column-width; }
-    Mod+Shift+R         { set-column-width "50%"; }
-
-    Mod+Ctrl+R          { switch-preset-window-height; }
-    Mod+Ctrl+Shift+R    { set-window-height "100%"; }
-
-    Mod+F               { maximize-column; }
-    Mod+Shift+F         { fullscreen-window; }
-    Mod+C               { center-column; }
-    Mod+X               { toggle-window-floating; }
-    Mod+Shift+X         { switch-focus-between-floating-and-tiling; }
-
-    Mod+Minus           { set-column-width "33.333%"; }
-    Mod+Equal           { set-column-width "50%"; }
-    Mod+Shift+Equal     { set-column-width "66.667%"; }
-
-    // Screenshow
-
-    // Utility
-    Mod+Ctrl+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-    Mod+Ctrl+Shift+Alt+Escape { quit; }
-
-    Mod+Ctrl+P { power-off-monitors; }
+animations {
+    slowdown 0.8
 }
-
-// Input / Output
-input {
-    keyboard {
-	repeat-delay 200
-        repeat-rate 35
-        numlock
-        xkb { 
-	    layout "us"
-	}
-    }
-
-    mouse {
-        accel-speed -0.5
-        accel-profile "flat"
-    }
-
-    // warp-mouse-to-focus
-    focus-follows-mouse max-scroll-amount="10%"
-}
-
-output "DP-1" {
-    mode "3440x1440@143.923"
-    scale 1
-    transform "normal"
-    position x=0 y=0
-    variable-refresh-rate
-    focus-at-startup
-    hot-corners {
-	off
+overview {
+    workspace-shadow {
+	on
     }
 }
+blur {
+    off
+    passes 3
+    offset  3.0
+    noise 0.03
+    saturation 1.0 //1.6
+}
 
-// Layout & Animations
+// Layout
 layout {
     gaps 8
+    center-focused-column "on-overflow"
+    always-center-single-column
     default-column-display "tabbed"
-    background-color "transparent"
+    //background-color "transparent"
 
-    default-column-width { proportion 0.5; }
-    preset-column-widths {
-        proportion 0.66667
-        proportion 0.5
-        proportion 0.33333
-    }
-
-    preset-window-heights {
-        proportion 0.66667
-        proportion 0.5
-        proportion 0.33333
-    }
+    default-column-width { proportion 0.33334; }
 
     focus-ring {
-        off
+	off
     }
 
     border {
-        width 2
+	width 2
+    }
+
+    shadow {
+	on
     }
 
     tab-indicator {
@@ -209,51 +66,34 @@ layout {
     }
 }
 
-animations {
-    slowdown 0.8
+// Input
+input {
+    keyboard {
+	repeat-delay 200
+	repeat-rate 35
+	numlock
+	xkb {
+	    layout "us"
+	}
+    }
+    mouse {
+	accel-speed -0.5
+	accel-profile "flat"
+    }
+    focus-follows-mouse max-scroll-amount="50%"
 }
 
-overview {
-    workspace-shadow {
+// Output
+output "DP-2" {
+    mode "3440x1440@143.923"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+    hot-corners {
 	off
     }
 }
 
-// Configure Blur
-blur {
-    passes 3
-    offset  3.0
-    noise 0.06
-    saturation 1.5
-}
-
-// Window Blur and Corners
-window-rule {
-    geometry-corner-radius 20
-    clip-to-geometry true
-    draw-border-with-background false
-    background-effect {
-	blur true
-    }
-}
-
-// Move Wallpaper to Overview
-layer-rule {
-    match namespace="^wallpaper$"
-    place-within-backdrop true
-}
-
-// make pip window float in the corner
-window-rule {
-    match app-id="" title="^Picture-in-picture$"
-    open-floating true
-    default-column-width { fixed 480; }
-    default-window-height { fixed 270; }
-    default-floating-position x=27 y=48 relative-to="bottom-left"
-}
-
-// block 1password from screen capture.
-window-rule {
-    match app-id="^1password$"
-    block-out-from "screen-capture"
-}
+// Noctalia
+include "noctalia.kdl"

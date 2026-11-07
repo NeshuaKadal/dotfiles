@@ -9,7 +9,7 @@ Scope {
         PanelWindow {
             required property var modelData
             screen: modelData
-            WlrLayershell.namespace: "wallpaper"
+            WlrLayershell.namespace: "quickshell: wallpaper"
             WlrLayershell.layer: WlrLayer.Background
             exclusionMode: ExclusionMode.Ignore
             anchors { top: true; bottom: true; left: true; right: true }

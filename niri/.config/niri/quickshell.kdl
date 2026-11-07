@@ -1,0 +1,16 @@
+// Move Wallpaper to Overview
+layer-rule {
+    match namespace="^quickshell: widgets$"
+    match namespace="^quickshell: wallpaper$"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^quickshell: bar$"
+    shadow {
+	on
+	softness 30
+	spread 5
+	offset x=0 y=5
+    }
+}

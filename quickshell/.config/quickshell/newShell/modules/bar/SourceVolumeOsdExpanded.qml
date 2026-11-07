@@ -4,7 +4,7 @@ import qs.services
 import qs.components
 
 Item {
-    implicitWidth: 300
+    implicitWidth: 360
     implicitHeight: 40
 
     RowLayout {

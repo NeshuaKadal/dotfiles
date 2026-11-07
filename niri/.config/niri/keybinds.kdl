@@ -1,0 +1,87 @@
+// Keybindings
+binds {
+    //Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Macros
+    // Ctrl+Space { spawn-sh "bash -c ~/.config/scripts/stardew-cancel.sh"; }
+
+    // Applications
+    Mod+Return 		{ spawn "foot"; }
+    Mod+E 		{ spawn "nautilus"; }
+    Mod+B 		{ spawn "zen-browser"; }
+
+    // Function
+    Mod+O repeat=false  { toggle-overview; }
+    Mod+Q repeat=false  { close-window; }
+    Mod+S               { spawn-sh "hyprpicker -anrf hex"; }
+
+    //Mod+Z
+    //Mod+X
+    Mod+C { center-column; }
+    //Mod+V
+
+
+    //---------- NAVIGATION ----------
+
+    Mod+M               { maximize-column; } // maximize
+    Mod+F               { fullscreen-window; } // fullscreen
+
+    Mod+Equal           { set-column-width "66.66667%"; }
+    Mod+Shift+Equal     { set-column-width "50.00000%"; }
+    Mod+Minus           { set-column-width "33.33334%"; }
+    Mod+Shift+Minus     { set-column-width "25.00000%"; }
+
+    Mod+Backslash       { toggle-windowed-fullscreen; }
+
+    Mod+Up 		{ focus-workspace-up; } // focus above workspace 
+    Mod+Down 		{ focus-workspace-down; } // focus below workspace
+    Mod+Left 		{ focus-column-left; } // focus column left
+    Mod+Right 		{ focus-column-right; } // focus column right
+
+    Mod+Page_Up 	{ focus-window-up; } // focus column up
+    Mod+Page_Down 	{ focus-window-down; } // focus column down
+
+    Mod+Shift+Up 	{ move-column-to-workspace-up; } // move column up one workspace
+    Mod+Shift+Down 	{ move-column-to-workspace-down; } // move column down one workspace
+    Mod+Shift+Left 	{ move-column-left; } // move column left
+    Mod+Shift+Right 	{ move-column-right; } // move column right
+
+    Mod+Ctrl+Up         { move-workspace-up; }
+    Mod+Ctrl+Down       { move-workspace-down; }
+
+    Mod+Tab             { focus-workspace-previous; }
+
+    Mod+1               { focus-workspace 1; }
+    Mod+2               { focus-workspace 2; }
+    Mod+3               { focus-workspace 3; }
+    Mod+4               { focus-workspace 4; }
+    Mod+5               { focus-workspace 5; }
+    Mod+6               { focus-workspace 6; }
+    Mod+7               { focus-workspace 7; }
+    Mod+8               { focus-workspace 8; }
+    Mod+9               { focus-workspace 9; }
+
+    Mod+Shift+1         { move-column-to-workspace 1; }
+    Mod+Shift+2         { move-column-to-workspace 2; }
+    Mod+Shift+3         { move-column-to-workspace 3; }
+    Mod+Shift+4         { move-column-to-workspace 4; }
+    Mod+Shift+5         { move-column-to-workspace 5; }
+    Mod+Shift+6         { move-column-to-workspace 6; }
+    Mod+Shift+7         { move-column-to-workspace 7; }
+    Mod+Shift+8         { move-column-to-workspace 8; }
+    Mod+Shift+9         { move-column-to-workspace 9; }
+
+    Mod+BracketLeft     { consume-or-expel-window-left; }
+    Mod+BracketRight    { consume-or-expel-window-right; }
+
+    Mod+T               { toggle-column-tabbed-display; }
+    Mod+V               { toggle-window-floating; }
+    Mod+Shift+V         { switch-focus-between-floating-and-tiling; }
+
+    Mod+Ctrl+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Mod+Ctrl+Shift+Alt+Escape { quit; }
+
+    Mod+Ctrl+P { power-off-monitors; }
+}
+

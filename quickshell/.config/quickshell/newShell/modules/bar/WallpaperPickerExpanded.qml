@@ -5,7 +5,7 @@ import qs.config
 import qs.services
 
 Item {
-    implicitWidth: 400
+    implicitWidth: 360
     implicitHeight: 320
 
     FolderListModel {

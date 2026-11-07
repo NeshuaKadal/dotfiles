@@ -1,0 +1,38 @@
+// Window Blur and Corners
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+    draw-border-with-background false
+    background-effect {
+	blur true
+	xray false
+    }
+}
+
+window-rule {
+    match at-startup=true app-id="^zen$"
+    default-column-width { fixed 1920; }
+}
+
+// move steam notifications to bottom-right, and stop from stealing focus
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+    open-focused false
+}
+
+// make pip window float in the corner
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+    default-floating-position x=27 y=48 relative-to="bottom-left"
+}
+
+// block 1password from screen capture.
+window-rule {
+    match app-id="^1password$"
+    block-out-from "screen-capture"
+}
+

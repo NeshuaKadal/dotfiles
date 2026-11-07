@@ -1,0 +1,66 @@
+binds {
+    Mod+Space 	{ spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Period 	{ spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Escape 	{ spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Comma 	{ spawn-sh "noctalia msg settings-toggle"; }
+    Mod+L 	{ spawn-sh "noctalia msg session lock"; }
+
+    Mod+Shift+C{ spawn-sh "noctalia msg panel-toggle clipboard"; }
+
+
+    Alt+Tab 	{ spawn-sh "noctalia msg window-switcher"; }
+    Mod+Home    { spawn-sh "noctalia msg bar-toggle"; }
+
+    Mod+Alt+Equal   { spawn-sh "noctalia msg volume-up 1"; }
+    Mod+Alt+Minus   { spawn-sh "noctalia msg volume-down 1"; }
+    Mod+Alt+0       { spawn-sh "noctalia msg volume-mute"; }
+    Mod+Alt+9       { spawn-sh "noctalia msg media next"; }
+    Mod+Alt+8       { spawn-sh "noctalia msg media toggle"; }
+    Mod+Alt+7       { spawn-sh "noctalia msg media previous"; }
+
+    Mod+Alt+Shift+M { spawn-sh "noctalia msg mic-mute"; }
+    Mod+Alt+M       { spawn-sh "noctalia msg volume-mute"; }
+
+    Mod+Alt+Up      { spawn-sh "noctalia msg volume-up"; }
+    Mod+Alt+Down    { spawn-sh "noctalia msg volume-down"; }
+
+    Mod+Alt+Right   { spawn-sh "noctalia msg media next"; }
+    Mod+Alt+Space   { spawn-sh "noctalia msg media toggle"; }
+    Mod+Alt+Left    { spawn-sh "noctalia msg media previous"; }
+
+    Mod+Alt+Home    { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Alt+Shift+Home    { spawn-sh "noctalia msg screenshot-fullscreen"; }
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+    background-effect {
+	xray false
+	// blur false
+    }
+}
+
+layer-rule {
+    match namespace="noctalia-window-switcher"
+    background-effect {
+	blur true
+	xray false
+    }
+}
+
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
